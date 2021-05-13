@@ -33,7 +33,7 @@ public class Player {
 	
 	public void load() {
 		//Metodo que define a imagem da nave
-		ImageIcon referencia = new ImageIcon("res\\alien.png");
+		ImageIcon referencia = new ImageIcon("res\\nave-espacial.png");
 		// ImageIcon deve ser importado como na linha 9
 		imagem = referencia.getImage();
 		altura = imagem.getHeight(null);

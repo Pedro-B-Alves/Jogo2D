@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 
 import meujogo.modelo.Fase;
 
-public class Container extends JFrame{
+public class Container extends JFrame {
 //JFrame e uma classe interna do Java	
    /**
 	 * 
@@ -37,7 +37,7 @@ public class Container extends JFrame{
 	}
              
 	public static void main (String [] args){
-		new Container();
+			new Container();
 	}
     
 

@@ -151,40 +151,45 @@ public class Fase extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		player.update();
 		// Atualiza a tela quando o player vai se movendo
-
-		for (int p = 0; p < nebulas.size(); p++) {
-			Nebula on = nebulas.get(p);
-			if (on.isVisivel()) {
-				on.update();
-			} 
-			else {
-				nebulas.remove(p);
-			} 
-		}
-
-		List<Tiro> tiros = player.getTiros();
-		// Para os tiros serem infinitos
-		for (int i = 0; i < tiros.size(); i++) {
-			Tiro m = tiros.get(i);
-			if (m.isVisivel()) {
-				m.update();
-			} else {
-				tiros.remove(i);
+		try {
+			for (int p = 0; p < nebulas.size(); p++) {
+				Nebula on = nebulas.get(p);
+				if (on.isVisivel()) {
+					on.update();
+				} 
+				else {
+					nebulas.remove(p);
+				} 
 			}
-		}
 
-		for (int o = 0; o < inimigo.size(); o++) {
-			Inimigo in = inimigo.get(o);
-			if (in.isVisivel()) {
-				in.update();
-			} else {
-				inimigo.remove(o);
+			List<Tiro> tiros = player.getTiros();
+			// Para os tiros serem infinitos
+			for (int i = 0; i < tiros.size(); i++) {
+				Tiro m = tiros.get(i);
+				if (m.isVisivel()) {
+					m.update();
+				} else {
+					tiros.remove(i);
+				}
 			}
+
+			for (int o = 0; o < inimigo.size(); o++) {
+				Inimigo in = inimigo.get(o);
+				if (in.isVisivel()) {
+					in.update();
+				} else {
+					inimigo.remove(o);
+				}
+			}
+
+			checarColisoes();
+
+			repaint();
+		}catch(Exception ex) {
+			System.out.println(ex);
+			meujogo.Container.main(null);
 		}
-
-		checarColisoes();
-
-		repaint();
+		
 
 	}
 
