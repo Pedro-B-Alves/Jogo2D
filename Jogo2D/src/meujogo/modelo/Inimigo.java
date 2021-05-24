@@ -15,7 +15,7 @@ public class Inimigo {
 	private boolean isVisivel;
 	//Para o inimigo sumir quando for atingido pelo tiro
 	
-	private static int VELOCIDADE = 2;
+	private static int VELOCIDADE = 4;
 	//Velocidade do inimigo
 	
 	

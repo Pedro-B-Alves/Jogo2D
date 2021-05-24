@@ -17,13 +17,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+@SuppressWarnings("serial")
 public class Fase extends JPanel implements ActionListener {
 	// JPanel e uma classe interna do Java
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5764065937664458862L;
+
 
 	private Image fundo;
 	// Para colocar imagem de fundo
@@ -70,7 +68,7 @@ public class Fase extends JPanel implements ActionListener {
 	}
 
 	public void inicializaInimigos() {
-		int coordenadas[] = new int[40];
+		int coordenadas[] = new int[80];
 		// Quantidade de inimigos
 		inimigo = new ArrayList<Inimigo>();
 		
@@ -151,22 +149,23 @@ public class Fase extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		player.update();
 		// Atualiza a tela quando o player vai se movendo
-		try {
-			for (int p = 0; p < nebulas.size(); p++) {
-				Nebula on = nebulas.get(p);
-				if (on.isVisivel()) {
-					on.update();
+
+			for (int p = 0; p < this.nebulas.size(); p++) {
+				Nebula ne = nebulas.get(p);
+				if (ne.isVisivel()) {
+					ne.update();
 				} 
 				else {
 					nebulas.remove(p);
 				} 
 			}
-
+			
+			
 			List<Tiro> tiros = player.getTiros();
 			// Para os tiros serem infinitos
 			for (int i = 0; i < tiros.size(); i++) {
 				Tiro m = tiros.get(i);
-				if (m.isVisivel()) {
+				if (m.isVisivel() && i%2==0) { // i%2==0 permite que o jogador tenha que recarregar a arma pra atirar
 					m.update();
 				} else {
 					tiros.remove(i);
@@ -185,10 +184,6 @@ public class Fase extends JPanel implements ActionListener {
 			checarColisoes();
 
 			repaint();
-		}catch(Exception ex) {
-			System.out.println(ex);
-			meujogo.Container.main(null);
-		}
 		
 
 	}

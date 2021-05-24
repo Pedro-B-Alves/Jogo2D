@@ -5,12 +5,9 @@ import javax.swing.JFrame;
 
 import meujogo.modelo.Fase;
 
+@SuppressWarnings("serial")
 public class Container extends JFrame {
 //JFrame e uma classe interna do Java	
-   /**
-	 * 
-	 */
-	private static final long serialVersionUID = -5153604303054161944L;
 
 	public Container (){
 		//Construtor
